@@ -1,0 +1,26 @@
+{
+  "name": "api_2e_gb_2021",
+  "version": "1.0.0",
+  "description": "API de comunicaçao do projeto de PW2 com o banco de dados",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/profdanilominas/2e_gb_pw2_2021.git"
+  },
+  "author": "Prof Danilo Camargo Dias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/profdanilominas/2e_gb_pw2_2021/issues"
+  },
+  "homepage": "https://github.com/profdanilominas/2e_gb_pw2_2021#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.0"
+  }
+}
