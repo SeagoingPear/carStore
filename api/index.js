@@ -22,14 +22,7 @@ server.use(bodyParser.json())
 
 ////////////////////////////////Rotas////////////////////////////////
 
-server.get('/', (req, res) => {
-    return res.status(200).send({
-        message: 'Bem vindo ao servidor!',
-        cidade: 'Itapeva',
-        uf: 'SP'
-    })
-})
-
+// Listar veículos
 server.get('/veiculos', (req, res) => {
     const QUERY = 'SELECT * FROM veiculos'
     banco.getConnection((error, conn) => {
@@ -41,12 +34,14 @@ server.get('/veiculos', (req, res) => {
             if(error) {
                 return res.status(500).send({ detalhes: error })
             }
-            return res.status(200).send({ data: resultados })
+            return res.status(200).send({
+              data: resultados
+            })
         })
     })
 })
 
-// Exercício 1
+// Inserir veículo
 server.post('/veiculos', (req, res) => {
     let body = req.body
     const query = `insert into veiculos (modelo, marca, preco_venda, proprietario) values('${body.modelo}', '${body.marca}', ${body.preco_venda},
@@ -60,12 +55,14 @@ server.post('/veiculos', (req, res) => {
 
             if(error) return res.status(501).send({detalhes: error})
 
-            return res.status(201).send({mensagem: 'Veiculo cadastrado com sucesso!'})
+            return res.status(201).send({
+              mensagem: 'Veiculo cadastrado com sucesso!'
+            })
         })
     })
 })
 
-// Exercício 2
+// Ordenar veículos pela marca
 server.get('/veiculos/orderMarca', (req, res) => {
     const query = `SELECT * FROM veiculos order by marca`
 
@@ -75,12 +72,14 @@ server.get('/veiculos/orderMarca', (req, res) => {
             conn.release()
 
             if(error) return res.status(500).send({ detalhes: error })
-            return res.status(200).send({ data: result})
+            return res.status(200).send({
+              data: result
+            })
         })
     })
 })
 
-// Exercício 3
+// Pesquiar veículos pela marca
 server.get('/veiculos/marca/:criterio', (req, res) => {
     const criterio = req.params.criterio
     const query = `SELECT * FROM veiculos WHERE marca LIKE '%${criterio}%'`
@@ -92,15 +91,17 @@ server.get('/veiculos/marca/:criterio', (req, res) => {
             conn.release()
 
             if(error) return res.status(500).send({ detalhes: error })
-            return res.status(200).send({ data: result })
+            return res.status(200).send({
+              data: result
+            })
         })
     })
 })
 
-// Exercício 4
+// Pesquisar veículos pelo proprietário
 server.get('/veiculos/proprietario/:criterio', (req, res) => {
     const criterio = req.params.criterio
-    const query = `SELECT * FROM veiculos where proprietario like '${criterio}%'`
+    const query = `SELECT * FROM veiculos where proprietario LIKE '${criterio}%'`
 
     banco.getConnection((error, conn) => {
         if(error) return res.status(500).send({ detalhes: error})
@@ -109,12 +110,14 @@ server.get('/veiculos/proprietario/:criterio', (req, res) => {
             conn.release();
 
             if(error) return res.status(500).send({ detalhes: error })
-            return res.status(200).send({ data: result })
+            return res.status(200).send({
+              data: result
+            })
         })
     })
 })
 
-// Exercício 5
+// Pesquisar veículos pelo preço (maior ou igual ao indicado)
 server.get('/veiculos/preco/:criterio', (req, res) => {
     const criterio = req.params.criterio
     const query = `SELECT * FROM veiculos WHERE preco_venda >= ${criterio}`
@@ -126,12 +129,14 @@ server.get('/veiculos/preco/:criterio', (req, res) => {
             conn.release()
 
             if(error) return res.status(500).send({ erro: error })
-            return res.status(200).send({ data: result })
+            return res.status(200).send({
+              data: result
+            })
         })
     })
 })
 
-// Exercício 6
+// Atualizar veículo pelo id
 server.patch('/veiculos/:criterio', (req, res) => {
     const criterio = req.params.criterio
     const body = req.body
@@ -145,12 +150,14 @@ server.patch('/veiculos/:criterio', (req, res) => {
             conn.release()
 
             if(error) return res.status(501).send({detalhes: error})
-            return res.status(200).send({mensagem: 'Veiculo alterado com sucesso!'})
+            return res.status(200).send({
+              mensagem: 'Veiculo alterado com sucesso!'
+            })
         })
     })
 })
 
-// Exercício 7
+// Deletar veículo pelo id
 server.delete('/veiculos/id/:criterio', (req, res) => {
     const criterio = req.params.criterio
     const query = `DELETE FROM veiculos WHERE id=${criterio}`
@@ -169,7 +176,7 @@ server.delete('/veiculos/id/:criterio', (req, res) => {
     })
 })
 
-// Exercício 8
+// Deletar veículo pela marca
 server.delete('/veiculos/marca/:criterio', (req, res) => {
     const criterio = req.params.criterio
     const query = `DELETE FROM veiculos WHERE marca='${criterio}'`
@@ -182,13 +189,13 @@ server.delete('/veiculos/marca/:criterio', (req, res) => {
 
             if(error) return res.status(500).send({ erro: error })
             return res.status(200).send({
-                message: 'Marca removida com sucesso!'
+                message: 'Veículo removido com sucesso!'
             })
         })
     })
 })
 
-// Exercício 9
+// Deletar veículo pela marca e pelo preço
 server.delete('/veiculos/modelo/:modelo/preco/:preco', (req, res) => {
     const modelo = req.params.modelo
     const preco = req.params.preco
@@ -202,7 +209,7 @@ server.delete('/veiculos/modelo/:modelo/preco/:preco', (req, res) => {
 
             if(error) return res.status(500).send({ erro: error })
             return res.status(200).send({
-                message: 'Dado removido com sucesso!'
+                message: 'Veículo removido com sucesso!'
             })
         })
     })
