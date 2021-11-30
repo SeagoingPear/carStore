@@ -1,0 +1,11 @@
+#verticalNav {
+  padding: 1rem;
+  color: black;
+  background-color: rgb(114, 48, 219);
+  position: absolute;
+  width: 8rem;
+}
+
+#navItems {
+  text-align: center;
+}

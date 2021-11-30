@@ -28,10 +28,10 @@ export class CadveiculosComponent implements OnInit {
     }
 
     this.vServ.salvar(v).subscribe(
-      (dados) => {
+      dados => {
         console.log(dados)
       },
-      (erro) => {
+      erro => {
         console.error(erro)
       }
     );
