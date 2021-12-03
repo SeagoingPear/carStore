@@ -11,8 +11,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'cadClientes', component: CadclientesComponent },
-  { path: 'cadVeiculos', component: CadveiculosComponent },
+  { path: 'cadclientes', component: CadclientesComponent },
+  { path: 'cadveiculos', component: CadveiculosComponent },
   { path: 'detalhes', component: DetalhesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'veiculos', component: VeiculosComponent }

@@ -1,6 +1,7 @@
 const express = require('express')
 const sql = require('mysql2')
 const server = express()
+
 const bodyParser = require('body-parser')
 const banco = sql.createPool({
     database: '2e_gb_210922',
