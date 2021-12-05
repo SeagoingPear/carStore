@@ -1,3 +1,4 @@
+import { ApiveiculosService } from './../../services/apiveiculos/apiveiculos.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private vServ: ApiveiculosService) { }
 
   ngOnInit(): void {
   }

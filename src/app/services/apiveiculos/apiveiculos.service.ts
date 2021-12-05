@@ -18,4 +18,10 @@ export class ApiveiculosService {
       catchError(erro => throwError(erro))
     )
   }
+  exibir(veiculo: any): Observable<any>{
+    return this.http.get<any>('http://localhost:3000/veiculos', veiculo).pipe(
+      map(retorno => retorno),
+      catchError(erro => throwError(erro))
+    )
+  }
 }
