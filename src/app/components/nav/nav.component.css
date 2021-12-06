@@ -1,7 +1,7 @@
 #verticalNav {
   padding: 1rem;
   color: black;
-  background-color: #138cce;
+  background-color: #054d91;
   height: 100vh !important;
   float: left;
   width: 8rem;
@@ -9,5 +9,4 @@
 
 #navItem {
   text-align: center;
-  background-color: #eff7f3;
 }
