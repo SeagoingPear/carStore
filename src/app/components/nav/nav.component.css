@@ -1,4 +1,4 @@
-#verticalNav {
+.verticalNav {
   padding: 1rem;
   color: black;
   background-color: #138cce;
@@ -7,7 +7,7 @@
   width: 8rem;
 }
 
-#navItem {
+.navItem {
   text-align: center;
   background-color: #eff7f3;
 }
