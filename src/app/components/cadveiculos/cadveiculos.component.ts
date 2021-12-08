@@ -7,10 +7,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadveiculos.component.css']
 })
 export class CadveiculosComponent implements OnInit {
+  marca = ''
+  modelo = ''
+  proprietario = ''
+  precoVenda = 0
 
-  constructor() { }
+  constructor(
+    private vServ: ApiveiculosService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  salvar(){
+    let v = {
+      marca: this.marca,
+      modelo: this.modelo,
+      proprietario: this.proprietario,
+      preco_venda: this.precoVenda
+    }
+
+    this.vServ.salvar(v).subscribe(
+      (dados) => {
+        console.log(dados)
+      },
+      (erro) => {
+        console.error(erro)
+      }
+    );
   }
 
 }

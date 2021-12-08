@@ -5,10 +5,23 @@
   height: 3rem;
 }
 
-.bg-lightGray {
-  background-color: #dde6e2;
-}
-
 .fs-15px {
   font-size: 15px;
+}
+
+#body {
+  background-color: #f2f3f8;
+}
+
+#navItem {
+  background-color: #f2f3f8;
+}
+
+.bg-lightGray {
+  background-color: #e2e3e8;
+}
+
+.bg-darkBlue {
+  background-color: #054d91 !important;
+  color: white !important;
 }

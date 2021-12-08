@@ -1,0 +1,12 @@
+<div>
+  <form action="">
+    <div><label for="">MARCA <input type="text" name="marca" [(ngModel)]="marca"></label></div>
+    <div><label for="">MODELO <input type="text" name="modelo" [(ngModel)]="modelo"></label></div>
+    <div><label for="">PROPRIETÁRIO <input type="text" name="proprietario" [(ngModel)]="proprietario"></label></div>
+    <div><label for="">PREÇO DE VENDA <input type="number" name="precoVenda" [(ngModel)]="precoVenda"></label></div>
+    <div>
+      <button type="reset">Limpar</button>
+      <button type="button" (click)="salvar()">Salvar</button>
+    </div>
+  </form>
+</div>
