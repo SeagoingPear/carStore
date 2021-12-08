@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const banco = sql.createPool({
     database: '2e_gb_210922',
     user: 'root',
-    password: 'minas',
+    password: '',
     host: 'localhost',
     port: '3306'
 })

@@ -1,12 +1,33 @@
-<div>
-  <form action="">
-    <div><label for="">MARCA <input type="text" name="marca" [(ngModel)]="marca"></label></div>
-    <div><label for="">MODELO <input type="text" name="modelo" [(ngModel)]="modelo"></label></div>
-    <div><label for="">PROPRIETÁRIO <input type="text" name="proprietario" [(ngModel)]="proprietario"></label></div>
-    <div><label for="">PREÇO DE VENDA <input type="number" name="precoVenda" [(ngModel)]="precoVenda"></label></div>
-    <div>
-      <button type="reset">Limpar</button>
-      <button type="button" (click)="salvar()">Salvar</button>
+<div class="container-fluid bg-lightGray rounded-3 p-4">
+  <div class="row">
+    <div class="col-5 p-3">
+      <img src="assets/imgCadastro.png" width="500">
+      <input class="form-control" type="file">
     </div>
-  </form>
+
+    <div class="col">
+      <div class="form-floating mb-3">
+        <input type="text" name="marca" class="form-control" id="floatingInput" placeholder="marca" [(ngModel)]="marca">
+        <label for="floatingInput">Marca</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" name="modelo" class="form-control" id="floatingInput" placeholder="Modelo" [(ngModel)]="modelo">
+        <label for="floatingInput">Modelo</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" name="proprietario" class="form-control" id="floatingInput" placeholder="Proprietário" [(ngModel)]="proprietario">
+        <label for="floatingInput">Proprietário</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="number" name="preco" class="form-control" id="floatingInput" placeholder="Preço" [(ngModel)]="precoVenda">
+        <label for="floatingInput">Preço</label>
+      </div>
+
+      <a class="btn btn-primary w-100" role="button" (click)="salvar()">Salvar</a>
+    </div>
+  </div>
 </div>
+
